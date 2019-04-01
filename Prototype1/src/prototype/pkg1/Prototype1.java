@@ -1,35 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package prototype.pkg1;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.layout.BorderPane;
-/**
- *
- * @author 8804
- */
-public class Prototype1 extends Application{
+package prototype1.pkg1;
 
-    /**
-     * @param args the command line arguments
-     */
- 
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Prototype11 extends Application{
+
+    
     public static void main(String[] args) {
-      launch(args);
+        launch(args);
     }
-    
-    
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        
-        ControlBox cBox = new ControlBox();
-        cBox.setTitle("Controller");
-        cBox.show();
+        UserInterface UI= new UserInterface(400,300);
+        SimulationWindow SW= new SimulationWindow(700,400);
+        UI.show();
+        SW.show();
     }
-    
     
 }
