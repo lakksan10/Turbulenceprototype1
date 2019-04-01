@@ -1,39 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package prototype.pkg1;
+
+package prototype1.pkg1;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author 8804
- */
-public abstract class GUI {
-    protected Stage primaryStage;
-    GUI(){
-        primaryStage = new Stage();
+public class GUI {
+    private final Stage stage;//Declares a new window or stage that can only be accessed and manipulated within the GUI class. Furthermore, this stage cannot be altered to refer to another object after it has been initialized.
+    public BorderPane bPane;//Declares a new container of type BorderPane.
+
+    GUI(int width, int height){
+        stage = new Stage();//A new empty window is created
         
+        bPane = new BorderPane();//A container which is divided into 5 separate areas(Top,Bottom,Left,Right,Centre) each of these areas can contain a subcomponent
         
-        BorderPane bPane = new BorderPane();//Container which is divided into 5 seperate areas(Top,Bottom,Left,Right,Centre) each of these ares can contain a subcomponent
+        Scene myscene = new Scene(bPane, width, height);//New scene is declared and initialised with a preset height and width
         
-        Scene myscene = new Scene(bPane, 400, 250);//New scene is declared and initialised with a preset height and width
+        this.stage.setResizable(false);//Makes it so that the user cannot resize the window
         
-        this.primaryStage.setScene(myscene);//specifies myscene to be used on the primaryStage
+        this.stage.setScene(myscene);//specifies myscene to be used on the primaryStage
         
-        //this.primaryStage.show();//sets visibility to true to display the primarystage to the user
-}
-    public Stage returnstage(){
-        return primaryStage;
-}
-    public void setTitle(String title){
-        this.primaryStage.setTitle(title);//The title of the javafx window is set to User Interface
     }
     
-    public abstract void show();
+    
+    public void setTitle(String title){
+        this.stage.setTitle(title);
+    }
+    
+    public void show(){
+        stage.show();
+    }
     
 }
